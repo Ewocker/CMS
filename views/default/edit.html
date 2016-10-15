@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+    <div class="welcome">
+        {{=welcome}}
+    </div>
+
+    {{=form}}
+
+    <div class="button_list">
+        {{for b in button_list:}}
+            <div class="top_button">{{=b}}</div>
+        {{pass}}
+    </div>
+</div>

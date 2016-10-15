@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+
+<div class="post_listing center">
+{{if auth.user_id:}}
+
+    <div class="post_list_header text-right">
+        <a href="{{=URL('default', 'edit')}}" class="btn btn-warning">
+            <i class="fa fa-plus"></i> New Post
+        </a>
+    </div>
+
+{{else:}}
+
+    <div class="post_list_header text-right">
+        <a href="{{=URL('default', 'user', args=['login'])}}" class="btn btn-warning">Log In</a>
+    </div>
+
+{{pass}}
+
+    <div class="post_list">
+    {{i = 1}}
+    {{for p in posts:}}
+        {{if i > 20: break}}
+        <div class="post text-left">
+            <!-- Here goes the code to display an individual post. The code below is just a placeholder. -->
+            <div class="post_num">POST. {{=i}}</div>
+            <div class="post_content">{{=p.post_content}}</div>
+            <div class="meta">{{=user_name(p.user_email)}}</div>
+            <div class="meta">{{=convertTime(p.created_on)}}</div>
+            <div class="meta">{{=updateTime(p)}}</div>
+            <div class="meta">{{=timeCompare(p)}}</div>
+            <div class="edit_icon">{{=isAuther(p)}}</div>
+        </div>
+        {{i+=1}}
+    {{pass}}
+    </div>
+
+</div>
