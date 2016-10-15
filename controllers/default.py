@@ -52,11 +52,15 @@ def timeCompare(p):
     t = p.updated_on
     delta = datetime.datetime.utcnow() - t
     time = 'Edited '
+    year = delta.days // 365
     month = delta.days // 30
     week = delta.days // 7
     minute = delta.seconds // 60
     hour = minute // 60
-    if month > 0:
+    if year > 0:
+        time += str(year)
+        time +- 'year ' if year == 1 else 'years '
+    elif month > 0:
         time += str(month)
         time += 'month ' if month == 1 else 'months '
     elif week > 0:
@@ -123,10 +127,10 @@ def edit():
         form = SQLFORM(db.post,
                        formstyle='bootstrap3_stacked',
                         submit_button='Create Post')
-        welcome = 'Type in the content in the Textbox then press the button to create a post'
+        welcome = XML('Type in the content in the Textbox <br/> Then press the button to create a post')
     elif action is 'edit':
         form_type = 'edit'
-        welcome = 'Wanna change something?! Sure! Let\'s do it'
+        welcome = XML('Wanna change something?! <br/> Sure! Let\'s do it')
         postID = request.args(1)
         query = ((db.post.user_email == auth.user.email) &
                 (db.post.id == postID))
@@ -145,7 +149,7 @@ def edit():
 
     if action is 'create':
         button_list.append(A('Cancel', _class='btn btn-warning',
-                             _href=URL('default', 'edit')))
+                             _href=URL('default', 'index')))
     elif action is 'edit':
         button_list.append(A('Cancel', _class='btn btn-warning',
                              _href=URL('default', 'index')))

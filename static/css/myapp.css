@@ -1,13 +1,13 @@
 /* line 2, ../sass/_main.scss */
 .post_listing {
-  margin: 10px 0px 10px 0px;
+  margin: 5px 0px 10px 0px;
   padding: 0 0 0 0px;
 }
 
 /* line 7, ../sass/_main.scss */
 .post_list {
   padding-top: 10px;
-  width: 60%;
+  width: 40%;
   margin: auto;
 }
 /* line 11, ../sass/_main.scss */
@@ -16,8 +16,8 @@
   border-style: solid;
   border-width: 1px;
   background: #91a9d5;
-  margin: 20px 0px 20px 0px;
-  padding: 20px;
+  margin: 5px 0px 5px 0px;
+  padding: 10px;
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
@@ -53,4 +53,10 @@
   text-align: center;
   color: #1d75b3;
   font-size: xx-large;
+}
+
+/* line 49, ../sass/_main.scss */
+.edit_form {
+  margin: auto;
+  width: 60%;
 }
